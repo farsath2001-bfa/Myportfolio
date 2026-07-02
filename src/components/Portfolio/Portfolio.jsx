@@ -468,9 +468,9 @@ function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          service_id: "YOUR_SERVICE_ID",
-          template_id: "YOUR_TEMPLATE_ID",
-          user_id: "YOUR_PUBLIC_KEY",
+          service_id: "service_fw2yxla",
+          template_id: "template_eah3i6b",
+          user_id: "0y4eS0bXbkp8sNvRi",
           template_params: {
             from_name: form.name,
             from_email: form.email,
