@@ -82,12 +82,14 @@ const CERTS = [
 const EXPERIENCE = [
   {
     period: "01/2025 – Present",
-    role: "Administrative Assistant",
+    role: "Administrative Assistant & Web Developer",
     company: "Planet Medica Medical Instrument Trading",
     points: [
       "Scheduling meetings and managing calendars",
       "Answering and directing phone calls",
       "Managing databases and records",
+      " Connect the user interface (front-end) with server-side logic and databases (back-end)",
+      "Monitor website traffic, manage hosting, and provide routine updates and technical documentation",
     ],
   },
   {
