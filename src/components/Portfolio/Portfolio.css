@@ -197,7 +197,7 @@
 .pf-form__field label{font-size:13px;font-weight:600;color:var(--ink-2);}
 .pf-form__field input,.pf-form__field textarea{padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-size:14px;font-family:var(--font-body);background:var(--bg);color:var(--ink);transition:border-color .15s;outline:none;resize:none;}
 .pf-form__field input:focus,.pf-form__field textarea:focus{border-color:var(--blue);}
-.pf-form__submit{align-self:flex-start;}
+.pf-form__submit{align-self:flex-start;margin-top:8px;display:inline-flex;}
 .pf-form__submit:disabled{opacity:.6;cursor:not-allowed;}
 .pf-form__error{font-size:13px;color:#dc2626;}
 .pf-form__success{font-size:13px;color:#16a34a;}
