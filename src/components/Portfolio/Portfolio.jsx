@@ -347,7 +347,7 @@ function Navbar({ active, dark, onToggle }) {
             </button>
           </li>
         ))}
-        <li><a className="pf-nav__cta" href="mailto:mdparsathali@gmail.com">Hire me</a></li>
+        {/* <li><a className="pf-nav__cta" href="mailto:mdparsathali@gmail.com">Hire me</a></li> */}
         <li><ThemeToggle dark={dark} onToggle={onToggle} /></li>
       </ul>
       <div className="pf-nav__right-mobile">
