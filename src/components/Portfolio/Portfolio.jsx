@@ -743,7 +743,7 @@ export default function Portfolio() {
         <Skills />
         <Certs />
         <Projects />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Contact />
         <Footer />
         <WhatsAppButton />
