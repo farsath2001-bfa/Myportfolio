@@ -638,7 +638,7 @@ function Contact() {
           <div className="pf-contact__cards">
             {[
               { icon: "✉️", label: "Email",    val: "mdparsathali@gmail.com",             href: "mailto:mdparsathali@gmail.com" },
-              { icon: "💬", label: "WhatsApp", val: "+971 56 119 233",                    href: "https://wa.me/971561192330" },
+              { icon: "💬", label: "WhatsApp", val: "+971 56 119 233",                    href: "https://wa.me/971561119233" },
               { icon: "💼", label: "LinkedIn", val: "linkedin.com/in/mohamed-parsath-ali", href: "https://www.linkedin.com/in/mohamed-parsath-ali-456961253" },
             ].map(c => (
               <a key={c.label} className="pf-contact-card" href={c.href} target="_blank" rel="noreferrer">
