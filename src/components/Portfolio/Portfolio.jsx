@@ -176,7 +176,7 @@ function PageLoader({ done }) {
     <div className={`pf-loader${done ? " pf-loader--done" : ""}`}>
       <div className="pf-loader__inner">
         <div className="pf-loader__letters">
-          <span>M</span><span>P</span>
+          <span>M--</span><span>Farsath</span>
         </div>
         <div className="pf-loader__bar">
           <div className="pf-loader__fill" />
@@ -638,7 +638,7 @@ function Contact() {
           <div className="pf-contact__cards">
             {[
               { icon: "✉️", label: "Email",    val: "mdparsathali@gmail.com",             href: "mailto:mdparsathali@gmail.com" },
-              { icon: "💬", label: "WhatsApp", val: "+971 56 119 233",                    href: "https://wa.me/971561119233" },
+              { icon: "💬", label: "WhatsApp", val: "+971 56 1119 233",                    href: "https://wa.me/971561119233" },
               { icon: "💼", label: "LinkedIn", val: "linkedin.com/in/mohamed-parsath-ali", href: "https://www.linkedin.com/in/mohamed-parsath-ali-456961253" },
             ].map(c => (
               <a key={c.label} className="pf-contact-card" href={c.href} target="_blank" rel="noreferrer">
