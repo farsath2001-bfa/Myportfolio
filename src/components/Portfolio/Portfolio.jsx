@@ -12,8 +12,8 @@ const TYPEWRITER_ROLES = [
 ];
 
 const STATS = [
-  { value: 3,   label: "Projects Shipped",   suffix: "+" },
-  { value: 3,   label: "Years Experience",    suffix: "+" },
+  { value: 5,   label: "Projects Shipped",   suffix: "+" },
+  { value: 2,   label: "Years Experience",    suffix: "+" },
   { value: 100, label: "Client Satisfaction", suffix: "%" },
   { value: 5,   label: "Tech Stack",          suffix: "+" },
 ];
@@ -38,14 +38,28 @@ const PROJECTS = [
     tags: ["React", "Node.js", "MongoDB", "JWT"], accent: "#2d5fc4",
   },
   {
-    id: 2, category: "jobportal", label: "Job Portal",
+    id: 2, category: "realestate", label: "Real Estate Platform",
+    title: "Shawahiq Real Estate",
+    url: "https://shawahiq-real-estate.vercel.app", short: "shawahiq-real-estate.vercel.app",
+    desc: "Full MERN stack real estate platform with CMS admin dashboard. Charcoal & gold branding, property listings and management system.",
+    tags: ["React", "Node.js", "MongoDB", "Cloudinary"], accent: "#D4A843",
+  },
+  {
+    id: 3, category: "realestate", label: "Real Estate Platform",
+    title: "Onera Real Estate",
+    url: "https://onera-realestate.vercel.app", short: "onera-realestate.vercel.app",
+    desc: "Premium real estate platform for Dubai client. Deep green & orange branding, property sales, investment and management services.",
+    tags: ["React", "Node.js", "MongoDB", "Express"], accent: "#056d5e",
+  },
+  {
+    id: 4, category: "jobportal", label: "Job Portal",
     title: "Blue Collar Jobs",
     url: "https://bluecollarjobs-frontend-1zzj.vercel.app", short: "bluecollarjobs-frontend-1zzj.vercel.app",
     desc: "Job listing platform for blue-collar workers in Dubai. Employer panels, worker profiles, and job applications.",
     tags: ["React", "Node.js", "MongoDB", "Render"], accent: "#2d5fc4",
   },
   {
-    id: 3, category: "client", label: "Client Website",
+    id: 5, category: "client", label: "Client Website",
     title: "Valet Parking Dubai",
     url: "https://valet-parking-dubai.vercel.app", short: "valet-parking-dubai.vercel.app",
     desc: "Premium valet parking service website for a Dubai client. Service pages, gallery, and WhatsApp quote integration.",
@@ -54,10 +68,11 @@ const PROJECTS = [
 ];
 
 const FILTER_TABS = [
-  { key: "all",      label: "All" },
-  { key: "crm",      label: "CRM" },
-  { key: "jobportal",label: "Job Portal" },
-  { key: "client",   label: "Client Sites" },
+  { key: "all",        label: "All" },
+  { key: "realestate", label: "Real Estate" },
+  { key: "crm",        label: "CRM" },
+  { key: "jobportal",  label: "Job Portal" },
+  { key: "client",     label: "Client Sites" },
 ];
 
 const CERTS = [
@@ -69,14 +84,14 @@ const CERTS = [
 const TESTIMONIALS = [
   {
     name: "Ahmed Al Mansouri",
-    role: "CEO, Lazord Real Estate",
+    role: "CEO, Shawahiq Real Estate",
     avatar: "AM",
     text: "Mohamed delivered an exceptional CRM platform for our real estate business. The bilingual Arabic/English interface was exactly what we needed. Professional, fast, and reliable.",
     stars: 5,
   },
   {
     name: "Sarah Johnson",
-    role: "Operations Manager, Solo Heights Group",
+    role: "Operations Manager",
     avatar: "SJ",
     text: "The valet parking website Mohamed built for us is stunning. Clean design, mobile-friendly, and integrated perfectly with our WhatsApp workflow. Highly recommended!",
     stars: 5,
@@ -176,7 +191,7 @@ function PageLoader({ done }) {
     <div className={`pf-loader${done ? " pf-loader--done" : ""}`}>
       <div className="pf-loader__inner">
         <div className="pf-loader__letters">
-          <span>M--</span><span>Farsath</span>
+          <span>M</span><span>P</span>
         </div>
         <div className="pf-loader__bar">
           <div className="pf-loader__fill" />
@@ -216,9 +231,7 @@ function BackToTop() {
       className={`pf-backtop${show ? " pf-backtop--show" : ""}`}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
       aria-label="Back to top"
-    >
-      ↑
-    </button>
+    >↑</button>
   );
 }
 
@@ -230,57 +243,37 @@ function Particles() {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     let animId;
-    let W = canvas.offsetWidth;
-    let H = canvas.offsetHeight;
-    canvas.width = W;
-    canvas.height = H;
-
+    let W = canvas.offsetWidth, H = canvas.offsetHeight;
+    canvas.width = W; canvas.height = H;
     const dots = Array.from({ length: 55 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
+      x: Math.random() * W, y: Math.random() * H,
       r: Math.random() * 1.8 + 0.4,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3,
+      vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
       o: Math.random() * 0.4 + 0.1,
     }));
-
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
       dots.forEach(d => {
         d.x += d.vx; d.y += d.vy;
-        if (d.x < 0) d.x = W;
-        if (d.x > W) d.x = 0;
-        if (d.y < 0) d.y = H;
-        if (d.y > H) d.y = 0;
-        ctx.beginPath();
-        ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(45,95,196,${d.o})`;
-        ctx.fill();
+        if (d.x < 0) d.x = W; if (d.x > W) d.x = 0;
+        if (d.y < 0) d.y = H; if (d.y > H) d.y = 0;
+        ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(74,144,217,${d.o})`; ctx.fill();
       });
-      // draw lines between close dots
       for (let i = 0; i < dots.length; i++) {
         for (let j = i + 1; j < dots.length; j++) {
-          const dx = dots[i].x - dots[j].x;
-          const dy = dots[i].y - dots[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
+          const dx = dots[i].x - dots[j].x, dy = dots[i].y - dots[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
           if (dist < 100) {
-            ctx.beginPath();
-            ctx.moveTo(dots[i].x, dots[i].y);
-            ctx.lineTo(dots[j].x, dots[j].y);
-            ctx.strokeStyle = `rgba(45,95,196,${0.12 * (1 - dist / 100)})`;
-            ctx.lineWidth = 0.6;
-            ctx.stroke();
+            ctx.beginPath(); ctx.moveTo(dots[i].x, dots[i].y); ctx.lineTo(dots[j].x, dots[j].y);
+            ctx.strokeStyle = `rgba(74,144,217,${0.1 * (1 - dist/100)})`; ctx.lineWidth = 0.6; ctx.stroke();
           }
         }
       }
       animId = requestAnimationFrame(draw);
     };
     draw();
-
-    const resize = () => {
-      W = canvas.offsetWidth; H = canvas.offsetHeight;
-      canvas.width = W; canvas.height = H;
-    };
+    const resize = () => { W = canvas.offsetWidth; H = canvas.offsetHeight; canvas.width = W; canvas.height = H; };
     window.addEventListener("resize", resize);
     return () => { cancelAnimationFrame(animId); window.removeEventListener("resize", resize); };
   }, []);
@@ -289,37 +282,26 @@ function Particles() {
 
 // ── Cursor ────────────────────────────────────────────────
 function Cursor() {
-  const dotRef  = useRef(null);
-  const glowRef = useRef(null);
+  const dotRef = useRef(null), glowRef = useRef(null);
   useEffect(() => {
     const move = (e) => {
-      if (dotRef.current)  { dotRef.current.style.left  = e.clientX + "px"; dotRef.current.style.top  = e.clientY + "px"; }
-      if (glowRef.current) { glowRef.current.style.left = e.clientX + "px"; glowRef.current.style.top = e.clientY + "px"; }
+      if (dotRef.current)  { dotRef.current.style.left  = e.clientX+"px"; dotRef.current.style.top  = e.clientY+"px"; }
+      if (glowRef.current) { glowRef.current.style.left = e.clientX+"px"; glowRef.current.style.top = e.clientY+"px"; }
     };
     const over = () => { dotRef.current?.classList.add("hovered");    glowRef.current?.classList.add("hovered"); };
     const out  = () => { dotRef.current?.classList.remove("hovered"); glowRef.current?.classList.remove("hovered"); };
     window.addEventListener("mousemove", move);
-    document.querySelectorAll("a,button").forEach(el => {
-      el.addEventListener("mouseenter", over);
-      el.addEventListener("mouseleave", out);
-    });
+    document.querySelectorAll("a,button").forEach(el => { el.addEventListener("mouseenter", over); el.addEventListener("mouseleave", out); });
     return () => window.removeEventListener("mousemove", move);
   }, []);
-  return (
-    <>
-      <div className="pf-cursor-dot"  ref={dotRef} />
-      <div className="pf-cursor-glow" ref={glowRef} />
-    </>
-  );
+  return (<><div className="pf-cursor-dot" ref={dotRef}/><div className="pf-cursor-glow" ref={glowRef}/></>);
 }
 
 // ── Theme Toggle ──────────────────────────────────────────
 function ThemeToggle({ dark, onToggle }) {
   return (
     <button className={`pf-theme-toggle${dark ? " pf-theme-toggle--dark" : ""}`} onClick={onToggle} aria-label="Toggle dark mode">
-      <span className="pf-theme-toggle__track">
-        <span className="pf-theme-toggle__thumb">{dark ? "🌙" : "☀️"}</span>
-      </span>
+      <span className="pf-theme-toggle__track"><span className="pf-theme-toggle__thumb">{dark ? "🌙" : "☀️"}</span></span>
     </button>
   );
 }
@@ -336,16 +318,11 @@ function Navbar({ active, dark, onToggle }) {
   return (
     <nav className={`pf-nav${scrolled ? " pf-nav--scrolled" : ""}`}>
       <span className="pf-nav__logo" onClick={() => scrollTo("hero")}>
-        <img src={profilePhoto} alt="MP" className="pf-nav__logo-img" />
-        <span>MP</span>
+        <img src={profilePhoto} alt="MP" className="pf-nav__logo-img" /><span>MP</span>
       </span>
       <ul className={`pf-nav__links${open ? " pf-nav__links--open" : ""}`}>
         {NAV_LINKS.map(l => (
-          <li key={l}>
-            <button className={`pf-nav__link${active === l ? " active" : ""}`} onClick={() => { setOpen(false); scrollTo(l); }}>
-              {l}
-            </button>
-          </li>
+          <li key={l}><button className={`pf-nav__link${active === l ? " active" : ""}`} onClick={() => { setOpen(false); scrollTo(l); }}>{l}</button></li>
         ))}
         <li><a className="pf-nav__cta" href="mailto:mdparsathali@gmail.com">Hire me</a></li>
         <li><ThemeToggle dark={dark} onToggle={onToggle} /></li>
@@ -366,40 +343,48 @@ function Hero() {
   return (
     <section className="pf-hero" id="hero">
       <Particles />
+      <div className="pf-hero__grid" aria-hidden="true" />
+      <div className="pf-hero__orb pf-hero__orb--1" aria-hidden="true" />
+      <div className="pf-hero__orb pf-hero__orb--2" aria-hidden="true" />
       <div className="pf-hero__inner">
         <div className="pf-hero__photo-wrap">
+          <div className="pf-hero__photo-ring" />
           <img src={profilePhoto} alt="Mohamed Parsath Ali" className="pf-hero__photo" />
         </div>
         <div className="pf-hero__badges">
           <div className="pf-hero__badge">Based in Dubai, UAE 🇦🇪</div>
-          <div className="pf-availability">
-            <span className="pf-availability__dot" />
-            Available for work
-          </div>
+          <div className="pf-availability"><span className="pf-availability__dot" />Available for work</div>
         </div>
         <h1 className="pf-hero__name">
-          Mohamed<br />
+          <span className="pf-hero__name--line1">Mohamed</span>
           <span className="pf-hero__name--accent">Parsath Ali</span>
         </h1>
         <div className="pf-hero__typewriter">
-          <span>{typed}</span>
+          <span className="pf-hero__typewriter--text">{typed}</span>
           <span className="pf-cursor-blink">|</span>
         </div>
         <p className="pf-hero__sub">
-          I build complete web products — CRMs, job platforms, and client websites
-          — using the MERN stack. Clean code, polished UI.
+          I build complete web products — CRMs, real estate platforms, job portals, and client websites — using the MERN stack. Clean code, polished UI.
         </p>
         <div className="pf-hero__actions">
-          <button className="pf-btn pf-btn--primary" onClick={() => scrollTo("projects")}>View projects</button>
-          <a className="pf-btn pf-btn--ghost" href="/Mohamed_Parsath_Ali_CV.pdf" download>⬇ Download CV</a>
+          <button className="pf-btn-hero-primary" onClick={() => scrollTo("projects")}>
+            <span>View projects</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <a className="pf-btn-hero-ghost" href="/Mohamed_Parsath_Ali_CV.pdf" download>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download CV</span>
+          </a>
         </div>
         <div className="pf-hero__stack">
           {["React", "Node.js", "MongoDB", "Express", "JavaScript"].map(t => (
-            <span key={t} className="pf-chip">{t}</span>
+            <span key={t} className="pf-hero__chip">{t}</span>
           ))}
         </div>
       </div>
-      <div className="pf-hero__scroll-hint" aria-hidden="true"><span /></div>
+      <div className="pf-hero__scroll-hint" aria-hidden="true">
+        <div className="pf-hero__scroll-line" /><span>Scroll</span>
+      </div>
     </section>
   );
 }
@@ -578,9 +563,7 @@ function Testimonials() {
         <div className="pf-testimonials__grid">
           {TESTIMONIALS.map((t, i) => (
             <div className="pf-testimonial-card" key={i} style={{ transitionDelay: `${i * 100}ms` }}>
-              <div className="pf-testimonial-card__stars">
-                {"★".repeat(t.stars)}
-              </div>
+              <div className="pf-testimonial-card__stars">{"★".repeat(t.stars)}</div>
               <p className="pf-testimonial-card__text">"{t.text}"</p>
               <div className="pf-testimonial-card__author">
                 <div className="pf-testimonial-card__avatar">{t.avatar}</div>
@@ -615,11 +598,8 @@ function Contact() {
           template_id: "template_eah3i6b",
           user_id:     "0y4eS0bXbkp8sNvRi",
           template_params: {
-            from_name:  form.name,
-            from_email: form.email,
-            message:    form.message,
-            to_name:    "Mohamed",
-            reply_to:   form.email,
+            from_name: form.name, from_email: form.email,
+            message: form.message, to_name: "Mohamed", reply_to: form.email,
           },
         }),
       });
@@ -637,8 +617,8 @@ function Contact() {
         <div className="pf-contact__layout">
           <div className="pf-contact__cards">
             {[
-              { icon: "✉️", label: "Email",    val: "mdparsathali@gmail.com",             href: "mailto:mdparsathali@gmail.com" },
-              { icon: "💬", label: "WhatsApp", val: "+971 56 1119 233",                    href: "https://wa.me/971561119233" },
+              { icon: "✉️", label: "Email",    val: "mdparsathali@gmail.com",              href: "mailto:mdparsathali@gmail.com" },
+              { icon: "💬", label: "WhatsApp", val: "+971 56 111 9233",                    href: "https://wa.me/971561119233" },
               { icon: "💼", label: "LinkedIn", val: "linkedin.com/in/mohamed-parsath-ali", href: "https://www.linkedin.com/in/mohamed-parsath-ali-456961253" },
             ].map(c => (
               <a key={c.label} className="pf-contact-card" href={c.href} target="_blank" rel="noreferrer">
@@ -703,9 +683,9 @@ function Footer() {
 
 // ── Root ──────────────────────────────────────────────────
 export default function Portfolio() {
-  const [active, setActive]   = useState("");
-  const [dark, setDark]       = useState(false);
-  const [loaded, setLoaded]   = useState(false);
+  const [active, setActive] = useState("");
+  const [dark, setDark]     = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("pf-theme");
@@ -743,7 +723,7 @@ export default function Portfolio() {
         <Skills />
         <Certs />
         <Projects />
-        {/* <Testimonials /> */}
+        <Testimonials />
         <Contact />
         <Footer />
         <WhatsAppButton />
