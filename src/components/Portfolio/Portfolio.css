@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 /* ── Tokens (Dark always) ──────────────────────── */
-:root{
 :root,[data-pf-theme="dark"],.pf-dark{
   --bg:#0c0a08;
   --surface:#161310;
@@ -386,4 +385,3 @@
 
 /* ── Slightly smaller stats ───────────────────── */
 .pf-stat__num{font-size:clamp(24px,3.5vw,36px);}
-}
