@@ -83,12 +83,12 @@ const CERTS = [
 
 const TESTIMONIALS = [
   {
-    name: "Ahmed Al Mansouri", role: "CEO, Lazord Real Estate", avatar: "AM",
+    name: "Ahmed Al Mansouri", role: "CEO, Real Estate", avatar: "AM",
     text: "Mohamed delivered an exceptional CRM platform for our real estate business. The bilingual Arabic/English interface was exactly what we needed. Professional, fast, and reliable.",
     stars: 5,
   },
   {
-    name: "Sarah Johnson", role: "Operations Manager, Solo Heights Group", avatar: "SJ",
+    name: "Sarah Johnson", role: "Operations Manager, Solo  Group", avatar: "SJ",
     text: "The valet parking website Mohamed built for us is stunning. Clean design, mobile-friendly, and integrated perfectly with our WhatsApp workflow. Highly recommended!",
     stars: 5,
   },
