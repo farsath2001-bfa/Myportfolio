@@ -31,7 +31,7 @@
   --font-disp:'Playfair Display','Georgia',serif;
   --font-body:'Inter','Segoe UI',system-ui,sans-serif;
 }
-.pf-root*{box-sizing:border-box;margin:0;padding:0;}
+.pf-root * {box-sizing:border-box;margin:0;padding:0;}
 .pf-root *::before,.pf-root *::after{box-sizing:border-box;}
 .pf-root{font-family:var(--font-body);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;transition:background .35s,color .35s;cursor:none;}
 .pf-root a{text-decoration:none;color:inherit;}
