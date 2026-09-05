@@ -12,7 +12,7 @@ const TYPEWRITER_ROLES = [
 ];
 
 const STATS = [
-  { value: 5,   label: "Projects Shipped",   suffix: "+" },
+  { value: 6,   label: "Projects Shipped",   suffix: "+" },
   { value: 2,   label: "Years Experience",    suffix: "+" },
   { value: 100, label: "Client Satisfaction", suffix: "%" },
   { value: 5,   label: "Tech Stack",          suffix: "+" },
@@ -73,7 +73,7 @@ const PROJECTS = [
     tags: ["React", "Node.js", "JWT", "Tailwind"], accent: "#810eec",
   },
 ];
-];
+
 
 const FILTER_TABS = [
   { key: "all",        label: "All" },
