@@ -65,6 +65,14 @@ const PROJECTS = [
     desc: "Premium valet parking service website for a Dubai client. Service pages, gallery, and WhatsApp quote integration.",
     tags: ["React", "Vite", "CSS Variables", "Vercel"], accent: "#C8A865",
   },
+  {
+    id: 6, category: "client", label: "Client Habit-Monitor Website",
+    title: "Habit-Tracker",
+    url: "https://habit-tracker-rouge-seven.vercel.app", short: "habit-tracker-rouge-seven.vercel.app",
+    desc: "habit-tracking app with JWT authentication, daily streak tracking, a GitHub-style contribution heatmap, analytics dashboard, and automated email reminders. Built with React, Node.js, MongoDB, and Tailwind CSS.",
+    tags: ["React", "Node.js", "JWT", "Tailwind"], accent: "#810eec",
+  },
+];
 ];
 
 const FILTER_TABS = [
@@ -88,7 +96,7 @@ const TESTIMONIALS = [
     stars: 5,
   },
   {
-    name: "Sarah Johnson", role: "Operations Manager, Solo  Group", avatar: "SJ",
+    name: "Sarah Johnson", role: "Operations Manager, Solo Group", avatar: "SJ",
     text: "The valet parking website Mohamed built for us is stunning. Clean design, mobile-friendly, and integrated perfectly with our WhatsApp workflow. Highly recommended!",
     stars: 5,
   },
@@ -144,8 +152,9 @@ const SOCIAL_LINKS = [
 ];
 
 // ── Hooks ─────────────────────────────────────────────────
-function useInView(threshold = 0.12) {
+function useInView(threshold = 0.15) {
   const ref = useRef(null);
+  
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -481,20 +490,19 @@ function Skills(){
       <div className={`pf-section__inner pf-fade${visible?" pf-fade--in":""}`}>
         <div className="pf-eyebrow">Skills</div>
         <h2 className="pf-title">Tech I work with</h2>
-        <div className="pf-skills__grid">
+        <div className="pf-skills__grid pf-mobile-slider">
           {SKILLS.map((s,i)=>(
-            <Stagger key={s.name} delay={i*60}>
-              <div className="pf-skill-card" style={{"--delay":`${i*70}ms`}}>
-                <div className="pf-skill-card__icon">{SKILL_SVGS[s.name]}</div>
-                <div className="pf-skill-card__name">{s.name}</div>
-                <div className="pf-skill-card__bar">
-                  <div className="pf-skill-card__fill" style={{width:visible?`${s.pct}%`:"0%"}}/>
-                </div>
-                <div className="pf-skill-card__pct">{s.pct}%</div>
+            <div key={s.name} className="pf-skill-card pf-slider-item" style={{"--delay":`${i*70}ms`}}>
+              <div className="pf-skill-card__icon">{SKILL_SVGS[s.name]}</div>
+              <div className="pf-skill-card__name">{s.name}</div>
+              <div className="pf-skill-card__bar">
+                <div className="pf-skill-card__fill" style={{width:visible?`${s.pct}%`:"0%"}}/>
               </div>
-            </Stagger>
+              <div className="pf-skill-card__pct">{s.pct}%</div>
+            </div>
           ))}
         </div>
+        <div className="pf-mobile-slider-hint">← Swipe →</div>
         <div className="pf-skills__extras">
           {["AutoCAD","Advanced MS-Excel","Microsoft Office"].map(t=>(
             <span key={t} className="pf-chip pf-chip--outline">{t}</span>
@@ -511,7 +519,7 @@ function Certs(){
   return(
     <section className="pf-section pf-certs" id="certs" ref={ref}>
       <div className={`pf-section__inner pf-fade${visible?" pf-fade--in":""}`}>
-        <div className="pf-eyebrow" >Certifications</div>
+        <div className="pf-eyebrow">Certifications</div>
         <h2 className="pf-title">Credentials</h2>
         <div className="pf-certs__grid">
           {CERTS.map((c,i)=>(
@@ -546,23 +554,22 @@ function Projects(){
             </button>
           ))}
         </div>
-        <div className="pf-projects__grid">
+        <div className="pf-projects__grid pf-mobile-slider">
           {filtered.map((p,i)=>(
-            <Stagger key={p.id} delay={i*80}>
-              <a className="pf-card" href={p.url} target="_blank" rel="noreferrer" style={{"--accent":p.accent}}>
-                <div className="pf-card__bar"/>
-                <div className="pf-card__label">{p.label}</div>
-                <h3 className="pf-card__title">{p.title}</h3>
-                <p className="pf-card__desc">{p.desc}</p>
-                <div className="pf-card__tags">{p.tags.map(t=><span key={t} className="pf-chip pf-chip--sm">{t}</span>)}</div>
-                <div className="pf-card__footer">
-                  <span className="pf-card__url">{p.short}</span>
-                  <svg className="pf-card__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-                </div>
-              </a>
-            </Stagger>
+            <a key={p.id} className="pf-card pf-slider-item" href={p.url} target="_blank" rel="noreferrer" style={{"--accent":p.accent}}>
+              <div className="pf-card__bar"/>
+              <div className="pf-card__label">{p.label}</div>
+              <h3 className="pf-card__title">{p.title}</h3>
+              <p className="pf-card__desc">{p.desc}</p>
+              <div className="pf-card__tags">{p.tags.map(t=><span key={t} className="pf-chip pf-chip--sm">{t}</span>)}</div>
+              <div className="pf-card__footer">
+                <span className="pf-card__url">{p.short}</span>
+                <svg className="pf-card__arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+              </div>
+            </a>
           ))}
         </div>
+        <div className="pf-mobile-slider-hint">← Swipe →</div>
       </div>
     </section>
   );
@@ -574,7 +581,7 @@ function Testimonials(){
   return(
     <section className="pf-section pf-testimonials" ref={ref}>
       <div className={`pf-section__inner pf-fade${visible?" pf-fade--in":""}`}>
-        {/* <div className="pf-eyebrow">Testimonials</div> */}
+        <div className="pf-eyebrow">Testimonials</div>
         <h2 className="pf-title">What clients say</h2>
         <div className="pf-testimonials__grid">
           {TESTIMONIALS.map((t,i)=>(

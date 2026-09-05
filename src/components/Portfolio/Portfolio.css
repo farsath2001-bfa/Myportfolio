@@ -385,3 +385,56 @@
 
 /* ── Slightly smaller stats ───────────────────── */
 .pf-stat__num{font-size:clamp(24px,3.5vw,36px);}
+
+/* ── Mobile Slider ────────────────────────────── */
+.pf-mobile-slider-hint{
+  display:none;
+  text-align:center;
+  font-size:12px;
+  color:var(--ink-3);
+  letter-spacing:.1em;
+  margin-top:12px;
+  margin-bottom:4px;
+}
+
+@media(max-width:640px){
+  /* Skills slider */
+  .pf-skills__grid.pf-mobile-slider{
+    display:flex;
+    flex-direction:row;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:14px;
+    padding-bottom:12px;
+    scrollbar-width:none;
+  }
+  .pf-skills__grid.pf-mobile-slider::-webkit-scrollbar{display:none;}
+  .pf-skills__grid.pf-mobile-slider .pf-skill-card{
+    flex:0 0 140px;
+    min-width:140px;
+    scroll-snap-align:start;
+  }
+
+  /* Projects slider */
+  .pf-projects__grid.pf-mobile-slider{
+    display:flex;
+    flex-direction:row;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    gap:16px;
+    padding-bottom:12px;
+    scrollbar-width:none;
+  }
+  .pf-projects__grid.pf-mobile-slider::-webkit-scrollbar{display:none;}
+  .pf-projects__grid.pf-mobile-slider .pf-card{
+    flex:0 0 80vw;
+    min-width:280px;
+    max-width:320px;
+    scroll-snap-align:start;
+  }
+
+  /* Show swipe hint on mobile */
+  .pf-mobile-slider-hint{display:block;}
+}
