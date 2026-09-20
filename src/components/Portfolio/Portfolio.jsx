@@ -12,8 +12,8 @@ const TYPEWRITER_ROLES = [
 ];
 
 const STATS = [
-  { value: 6,   label: "Projects Shipped",   suffix: "+" },
-  { value: 2,   label: "Years Experience",    suffix: "+" },
+  { value: 7,   label: "Projects Shipped",   suffix: "+" },
+  { value: 2.5,   label: "Years Experience",    suffix: "+" },
   { value: 100, label: "Client Satisfaction", suffix: "%" },
   { value: 5,   label: "Tech Stack",          suffix: "+" },
 ];
@@ -72,6 +72,13 @@ const PROJECTS = [
     desc: "habit-tracking app with JWT authentication, daily streak tracking, a GitHub-style contribution heatmap, analytics dashboard, and automated email reminders. Built with React, Node.js, MongoDB, and Tailwind CSS.",
     tags: ["React", "Node.js", "JWT", "Tailwind"], accent: "#810eec",
   },
+   {
+  id: 7, category: "personal", label: "SpendWise AI - Expense Tracker Website",
+  title: "SpendWise-AI",
+  url: "https://spendwise-six-sage.vercel.app", short: "spendwise-six-sage.vercel.app",
+  desc: "AI-powered expense and budget tracker with JWT authentication, receipt-photo uploads, category budgets with over-limit alerts, savings goals, an analytics dashboard with spending-trend charts, and an AI assistant for personalized financial insights. Built with React, Node.js, MongoDB, and Tailwind CSS.",
+  tags: ["React", "Node.js", "MongoDB", "AI"], accent: "#10b981",
+},
 ];
 
 
@@ -81,6 +88,7 @@ const FILTER_TABS = [
   { key: "crm",        label: "CRM" },
   { key: "jobportal",  label: "Job Portal" },
   { key: "client",     label: "Client Sites" },
+  { key: "personal",     label: "Personal Sites" },
 ];
 
 const CERTS = [
