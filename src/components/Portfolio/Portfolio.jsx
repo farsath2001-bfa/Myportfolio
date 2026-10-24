@@ -54,7 +54,7 @@ const PROJECTS = [
   {
     id: 4, category: "jobportal", label: "Job Portal",
     title: "Blue Collar Jobs",
-    url: "https://bluecollarjobs-frontend-1zzj.vercel.app", short: "bluecollarjobs-frontend-1zzj.vercel.app",
+    url: "https://bluecollarjobs-frontend.vercel.app", short: "bluecollarjobs-frontend.vercel.app",
     desc: "Job listing platform for blue-collar workers in Dubai. Employer panels, worker profiles, and job applications.",
     tags: ["React", "Node.js", "MongoDB", "Render"], accent: "#2d5fc4",
   },
